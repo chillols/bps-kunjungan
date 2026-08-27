@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Queue extends Model
 {
@@ -14,6 +15,22 @@ class Queue extends Model
     'layanan_id',
     'no_antrian',
     'tujuan',
-    'status'
+    'status',
+    'waktu_dipanggil',
+    'waktu_selesai'
 ];
+    protected $casts = [
+        'waktu_dipanggil' => 'datetime',
+        'waktu_selesai' => 'datetime',
+    ];
+
+    public function visitor(): BelongsTo
+    {
+        return $this->belongsTo(Visitor::class);
+    }
+
+    public function service(): BelongsTo
+    {
+        return $this->belongsTo(Service::class);
+    }
 }

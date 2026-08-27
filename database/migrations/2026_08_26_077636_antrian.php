@@ -22,6 +22,8 @@ return new class extends Migration
         $table->integer('no_antrian');
         $table->string('tujuan');
         $table->enum('status',['menunggu','dilayani','selesai', 'batal'])->default('menunggu');
+        $table->time('waktu_dipanggil')->nullable();
+        $table->time('waktu_selesai')->nullable();
         $table->timestamps();
     });
         }

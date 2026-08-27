@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\HasMany;
 
 class Visitor extends Model
 {
@@ -21,4 +22,8 @@ class Visitor extends Model
     'jenis_keperluan',
     'deskripsi_keperluan'
 ];
+    public function queues(): HasMany
+    {
+        return $this->hasMany(Queue::class);
+    }
 }

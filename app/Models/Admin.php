@@ -13,5 +13,8 @@ class Admin extends Model
     'username',
     'password'
 ];
+    protected $hidden = [
+        'password',
+    ];
     public $timestamps = false;
 }
