@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-formlogin-layout>
 
     <x-auth-session-status
         class="mb-4"
@@ -84,4 +84,4 @@
 
     </form>
 
-</x-guest-layout>
+</x-formlogin-layout>

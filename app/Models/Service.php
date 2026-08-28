@@ -8,14 +8,21 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Service extends Model
 {
+    use HasFactory;
+
     protected $table = 'layanan';
+
     protected $fillable = [
-    'nama',
-    'deskripsi',
-    'status'
+        'nama_layanan',
+        'deskripsi',
+        'status',
     ];
+
     public function queues(): HasMany
     {
-        return $this->hasMany(Queue::class);
+        return $this->hasMany(
+            Queue::class,
+            'layanan_id'
+        );
     }
 }

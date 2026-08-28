@@ -24,7 +24,7 @@
                 <img
                     src="{{ asset('images/logo_bps.png') }}"
                     alt="Logo BPS"
-                    class="mx-auto h-20 w-20 object-contain"
+                    class="mx-auto h-36 w-auto object-contain mb-1"
                 >
             </div>
 
