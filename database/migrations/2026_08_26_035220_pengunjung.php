@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('instansi');
             $table->string('alamat');
             $table->string('no_hp');
-            $table->string('email')->unique();
+            $table->string('email')->nullable();
             $table->string('pekerjaan');
             $table->timestamps();
         });

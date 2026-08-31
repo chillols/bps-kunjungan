@@ -17,14 +17,10 @@ class Queue extends Model
         'layanan_id',
         'no_antrian',
         'tujuan',
+        'rincian_tujuan',
         'status',
         'waktu_dipanggil',
         'waktu_selesai',
-    ];
-
-    protected $casts = [
-        'waktu_dipanggil' => 'datetime',
-        'waktu_selesai' => 'datetime',
     ];
 
     public function visitor(): BelongsTo

@@ -40,5 +40,10 @@ class ServiceSeeder extends Seeder
             'deskripsi' => 'Layanan rekomendasi kegiatan statistik untuk pengunjung',
             'status' => 'aktif'
         ]);
+        Service::create([
+            'nama' => 'Keperluan Lainnya',
+            'deskripsi' => 'Layanan keperluan lainnya untuk pengunjung',
+            'status' => 'aktif'
+        ]);
     }
 }

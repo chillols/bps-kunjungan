@@ -13,14 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-    Schema::create('layanan', function (Blueprint $table) {
-        $table->id();
-        $table->string('nama');
-        $table->text('deskripsi');
-        $table->enum('status', ['aktif', 'non-aktif'])->default('aktif');
-        $table->timestamps();
-    
-    });
+        Schema::table('antrian', function (Blueprint $table) {
+        $table->text('rincian_tujuan')->nullable()->after('tujuan');
+        });
     }
 
     /**
@@ -30,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('layanan');
+        Schema::table('antrian', function (Blueprint $table) {
+        $table->dropColumn('rincian_tujuan');
+    });
     }
 };

@@ -16,15 +16,15 @@ class AdminController extends Controller
             $today
         )->count();
 
-        $totalWaiting = Queue::where('status', 'waiting')
+        $totalWaiting = Queue::where('status', 'menunggu')
             ->whereDate('created_at', $today)
             ->count();
 
-        $totalCalled = Queue::where('status', 'called')
+        $totalCalled = Queue::where('status', 'dipanggil')
             ->whereDate('created_at', $today)
             ->count();
 
-        $totalCompleted = Queue::where('status', 'completed')
+        $totalCompleted = Queue::where('status', 'selesai')
             ->whereDate('created_at', $today)
             ->count();
 

@@ -122,11 +122,11 @@
 
                                 <div>
                                     <p class="text-sm text-gray-500">
-                                        Nomor Antrean
+                                        Nomor Antrean Saat Ini
                                     </p>
 
                                     <p class="text-4xl font-extrabold text-red-600 mt-1">
-                                        A-012
+                                        1
                                     </p>
                                 </div>
 
@@ -152,17 +152,17 @@
                                     </span>
 
                                     <span class="text-sm font-semibold text-yellow-600">
-                                        Menunggu
+                                        menunggu
                                     </span>
                                 </div>
 
                                 <div class="flex justify-between p-4 bg-gray-50 rounded-xl">
                                     <span class="text-sm text-gray-500">
-                                        Antrean Saat Ini
+                                        Antrean Selanjutnya
                                     </span>
 
                                     <span class="text-sm font-bold text-gray-800">
-                                        A-009
+                                        2
                                     </span>
                                 </div>
 
@@ -172,7 +172,7 @@
                                     </span>
 
                                     <span class="text-sm font-semibold text-gray-800">
-                                        Konsultasi Data
+                                        Pepustakaan
                                     </span>
                                 </div>
 

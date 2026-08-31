@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\VisitorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,8 +21,17 @@ Route::get('/', function () {
 });
 
 Route::get('/kunjungan', function () {
-    return view('kunjungan.create');
-})->name('kunjungan.create');
+    return view('kunjungan.create');})
+    ->name('kunjungan.create');
+
+Route::get('/kunjungan', [VisitorController::class, 'create'])
+    ->name('kunjungan.create');
+
+Route::post('/kunjungan', [VisitorController::class, 'store'])
+    ->name('kunjungan.store');
+
+Route::get('/kunjungan/antrian/{id}', [VisitorController::class, 'antrian'])
+    ->name('kunjungan.antrian');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

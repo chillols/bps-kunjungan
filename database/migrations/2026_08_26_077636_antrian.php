@@ -21,6 +21,7 @@ return new class extends Migration
         $table->foreign('layanan_id')->references('id')->on('layanan')->onDelete('cascade');
         $table->integer('no_antrian');
         $table->string('tujuan');
+        //$table->string('rincian_tujuan');
         $table->enum('status',['menunggu','dilayani','selesai', 'batal'])->default('menunggu');
         $table->time('waktu_dipanggil')->nullable();
         $table->time('waktu_selesai')->nullable();
@@ -36,6 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('antrian');
     }
 };
