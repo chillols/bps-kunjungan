@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Queue;
 use App\Models\Visitor;
+use App\Models\Service;
 
 class AdminController extends Controller
 {
@@ -35,7 +36,6 @@ class AdminController extends Controller
             ->whereDate('created_at', $today)
             ->orderBy('created_at', 'desc')
             ->get();
-
         return view('admin.dashboard', [
             'totalVisitors' => $totalVisitors,
             'totalWaiting' => $totalWaiting,

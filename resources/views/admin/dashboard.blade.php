@@ -77,101 +77,106 @@
 
         <div class="overflow-x-auto">
 
-            <table class="w-full text-sm text-left">
+    <table class="w-full text-sm text-left">
 
-                <thead class="border-b border-gray-200">
+        <thead class="border-b border-gray-200">
+            <tr>
 
-                    <tr>
+                <th class="py-3 px-2 font-semibold text-gray-600">
+                    No. Antrean
+                </th>
 
-                        <th class="py-3 px-2 font-semibold text-gray-600">
-                            No. Antrean
-                        </th>
+                <th class="py-3 px-2 font-semibold text-gray-600">
+                    Nama Pengunjung
+                </th>
 
-                        <th class="py-3 px-2 font-semibold text-gray-600">
-                            Nama
-                        </th>
+                <th class="py-3 px-2 font-semibold text-gray-600">
+                    Layanan
+                </th>
 
-                        <th class="py-3 px-2 font-semibold text-gray-600">
-                            Layanan
-                        </th>
+                <th class="py-3 px-2 font-semibold text-gray-600">
+                    Tujuan
+                </th>
 
-                        <th class="py-3 px-2 font-semibold text-gray-600">
-                            Status
-                        </th>
+                <th class="py-3 px-2 font-semibold text-gray-600">
+                    Status
+                </th>
 
-                    </tr>
+            </tr>
+        </thead>
 
-                </thead>
+        <tbody>
 
+            @forelse($queues as $queue)
 
-                <tbody>
+                <tr class="border-b border-gray-100 hover:bg-gray-50">
 
-                    @forelse($queues as $queue)
+                    {{-- No. Antrean --}}
+                    <td class="py-4 px-2 font-semibold">
+                        {{ $queue->no_antrian }}
+                    </td>
 
-                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                    {{-- Nama Pengunjung --}}
+                    <td class="py-4 px-2">
+                        {{ $queue->visitor->nama }}
+                    </td>
 
-                            <td class="py-4 px-2 font-semibold">
-                                {{ $queue->no_antrian }}
-                            </td>
+                    {{-- Layanan --}}
+                    <td class="py-4 px-2">
+                        {{ $queue->service->nama }}
+                    </td>
 
-                            <td class="py-4 px-2">
-                                {{ $queue->visitor->nama }}
-                            </td>
+                    {{-- Tujuan --}}
+                    <td class="py-4 px-2">
+                        {{ $queue->rincian_tujuan }}
+                    </td>
 
-                            <td class="py-4 px-2">
-                                {{ $queue->service->nama }}
-                            </td>
+                    {{-- Status --}}
+                    <td class="py-4 px-2">
 
-                            <td class="py-4 px-2">
+                        @if($queue->status === 'menunggu')
 
-                                @if($queue->status === 'menunggu')
+                            <span class="px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 text-xs font-medium">
+                                Menunggu
+                            </span>
 
-                                    <span class="px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 text-xs font-medium">
-                                        Menunggu
-                                    </span>
+                        @elseif($queue->status === 'dipanggil')
 
-                                @elseif($queue->status === 'dipanggil')
+                            <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-medium">
+                                Dipanggil
+                            </span>
 
-                                    <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-medium">
-                                        Dipanggil
-                                    </span>
+                        @elseif($queue->status === 'selesai')
 
-                                @elseif($queue->status === 'selesai')
+                            <span class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-xs font-medium">
+                                Selesai
+                            </span>
 
-                                    <span class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-xs font-medium">
-                                        Selesai
-                                    </span>
+                        @elseif($queue->status === 'batal')
 
-                                @elseif($queue->status === 'batal')
+                            <span class="px-3 py-1 rounded-full bg-red-100 text-red-700 text-xs font-medium">
+                                Dibatalkan
+                            </span>
 
-                                    <span class="px-3 py-1 rounded-full bg-red-100 text-red-700 text-xs font-medium">
-                                        Dibatalkan
-                                    </span>
+                        @endif
 
-                                @endif
+                    </td>
 
-                            </td>
+                </tr>
 
-                        </tr>
+            @empty
 
-                    @empty
+                <tr>
+                    <td colspan="5" class="py-10 text-center text-gray-500">
+                        Belum ada antrean hari ini.
+                    </td>
+                </tr>
 
-                        <tr>
+            @endforelse
 
-                            <td colspan="4"
-                                class="py-10 text-center text-gray-500">
+        </tbody>
 
-                                Belum ada antrean hari ini.
-
-                            </td>
-
-                        </tr>
-
-                    @endforelse
-
-                </tbody>
-
-            </table>
+    </table>
 
         </div>
 

@@ -126,7 +126,7 @@
                                     </p>
 
                                     <p class="text-4xl font-extrabold text-red-600 mt-1">
-                                        1
+                                        {{ $no_antrian ?? 0 }}
                                     </p>
                                 </div>
 
@@ -152,17 +152,7 @@
                                     </span>
 
                                     <span class="text-sm font-semibold text-yellow-600">
-                                        menunggu
-                                    </span>
-                                </div>
-
-                                <div class="flex justify-between p-4 bg-gray-50 rounded-xl">
-                                    <span class="text-sm text-gray-500">
-                                        Antrean Selanjutnya
-                                    </span>
-
-                                    <span class="text-sm font-bold text-gray-800">
-                                        2
+                                        {{ $status ?? '-' }}
                                     </span>
                                 </div>
 
@@ -172,7 +162,17 @@
                                     </span>
 
                                     <span class="text-sm font-semibold text-gray-800">
-                                        Pepustakaan
+                                        {{$tujuan ?? '-'}}
+                                    </span>
+                                </div>
+
+                                <div class="flex justify-between p-4 bg-gray-50 rounded-xl">
+                                    <span class="text-sm text-gray-500">
+                                        Antrean Selanjutnya
+                                    </span>
+
+                                    <span class="text-sm font-bold text-gray-800">
+                                        {{$antrianSelanjutnya ?? '-'}}
                                     </span>
                                 </div>
 

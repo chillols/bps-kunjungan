@@ -123,12 +123,6 @@ class VisitorController extends Controller
             'kunjungan.antrian',
             $pengunjung->id
         );
-        return view('/',[
-            'no_antrian' => $pengunjung->queue->no_antrian,
-            'status' => $pengunjung->queue->status,
-            'antrian_selanjutnya' => $pengunjung->no_antrian + 1,
-            'layanan' => $pengunjung->queue->service->nama
-        ]);
     }
 
     /**
@@ -138,13 +132,34 @@ class VisitorController extends Controller
     {
         $pengunjung = Visitor::with('queue')
             ->findOrFail($id);
-
+        $antrian = $pengunjung->queue;
         return view('kunjungan.antrian',[
-            'no_antrian' => $pengunjung->queue->no_antrian,
             'nama' => $pengunjung->nama,
-            'tanggal' => $pengunjung->tanggal_kunjungan,
-        
+            'no_antrian' => $antrian->no_antrian,
+            'tujuan' => $antrian->tujuan,
+            'tanggal_kunjungan' => $pengunjung->tanggal_kunjungan,
+            'jam_kunjungan' => $pengunjung->jam_kunjungan,
+            'rincian_tujuan' => $antrian->rincian_tujuan,
         ]);
     }
+    public function welcome()
+{
+    // Antrean yang sedang dipanggil
+    $antrian = Queue::where('status', 'dipanggil')
+        ->latest('updated_at')
+        ->first();
+
+    // Antrean selanjutnya
+    $antrianSelanjutnya = Queue::where('status', 'menunggu')
+        ->orderBy('no_antrian', 'asc')
+        ->first();
+
+    return view('welcome', [
+        'no_antrian' => $antrian?->no_antrian,
+        'status' => $antrian?->status,
+        'antrian_selanjutnya' => $antrianSelanjutnya?->no_antrian,
+        'rincian_tujuan' => $antrian?->rincian_tujuan,
+    ]);
+}
     
 }

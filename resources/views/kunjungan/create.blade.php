@@ -76,7 +76,7 @@
                 class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
                 required
             >
-                <option value="">Pilih jenis kelamin</option>
+                <option value="">--Pilih jenis kelamin--</option>
                 <option value="Laki-laki">Laki-laki</option>
                 <option value="Perempuan">Perempuan</option>
             </select>
@@ -97,7 +97,7 @@
                 class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
                 required
             >
-                <option value="">Kategori Instansi</option>
+                <option value="">--Kategori Instansi--</option>
                 <option value="Lembaga Negara">Lembaga Negara</option>
                 <option value="Kementrian & Lembaga Pemerintah">Kementrian & Lembaga Pemerintah</option>
                 <option value="TNI/POLRI/BIN/Kejaksaan">TNI/POLRI/BIN/Kejaksaan</option>
@@ -190,7 +190,7 @@
                 class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
                 required
             >
-                <option value="">Pekerjaan Utama</option>
+                <option value="">--Pekerjaan Utama--</option>
                 <option value="Pelajar/Mahasiswa">Pelajar/Mahasiswa</option>
                 <option value="Peneliti/Dosen">Peneliti/Dosen</option>
                 <option value="ASN/TNI/POLRI">ASN/TNI/POLRI</option>
@@ -231,7 +231,7 @@
                 class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
                 required
             >
-                <option value="">Pilih tujuan kunjungan</option>
+                <option value="">--Pilih tujuan kunjungan--</option>
                 <option value="Perpustakaan">Perpustakaan</option>
                 <option value="Pembelian Produk Statistik Berbayar">Pembelian Produk Statistik Berbayar</option>
                 <option value="Akses Produk Statistik pada Website BPS">Akses Produk Statistik pada Website BPS</option>
