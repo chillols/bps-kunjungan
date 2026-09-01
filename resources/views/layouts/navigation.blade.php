@@ -74,7 +74,7 @@
 
 
         <!-- Antrean -->
-        <a href="#"
+        <a href="/admin/daftarantrian"
            class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50">
 
             <svg class="w-5 h-5"
@@ -116,7 +116,7 @@
 
 
         <!-- Riwayat -->
-        <a href="#"
+        <a href="/admin/riwayatkunjungan"
            class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50">
 
             <svg class="w-5 h-5"

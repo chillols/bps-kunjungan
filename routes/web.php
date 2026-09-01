@@ -33,6 +33,13 @@ Route::post('/kunjungan', [VisitorController::class, 'store'])
 Route::get('/kunjungan/antrian/{id}', [VisitorController::class, 'antrian'])
     ->name('kunjungan.antrian');
 
+
+// Admin routes
+Route::get('/admin/daftarantrian', function () {
+    return view('admin.daftarantrian');
+})->name('admin.daftarantrian');
+
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
