@@ -39,6 +39,17 @@ Route::get('/admin/daftarantrian', function () {
     return view('admin.daftarantrian');
 })->name('admin.daftarantrian');
 
+Route::get('/admin/datapengunjung', [AdminController::class, 'datapengunjung'])
+    ->name('admin.datapengunjung');
+
+Route::get('/admin/datapengunjung/{id}', [AdminController::class, 'detailPengunjung'])
+    ->name('admin.datapengunjung.detail');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin/riwayatkunjungan',[AdminController::class, 'riwayatkunjungan'])->name('admin.riwayatkunjungan');
+    Route::get('/admin/riwayatkunjungan/{tanggal}',[AdminController::class, 'detailriwayatkunjungan'])->name('admin.detailriwayatkunjungan');
+    Route::get('/admin/riwayatkunjungan/{tanggal}/export',[AdminController::class, 'exportriwayatkunjungan'])->name('admin.riwayatkunjungan.export');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
