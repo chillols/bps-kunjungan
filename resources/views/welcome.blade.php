@@ -27,7 +27,7 @@
                 {{-- Logo --}}
                 <a href="{{ url('/') }}" class="flex items-center gap-3">
 
-                    <div class="w-20 h-20flex items-center justify-center">
+                    <div class="w-20 h-20 flex items-center justify-center">
                          <img 
                         src="{{ asset('images/logo_bps.png') }}" 
                         alt="Logo BPS"
@@ -126,7 +126,7 @@
                                     </p>
 
                                     <p class="text-4xl font-extrabold text-red-600 mt-1">
-                                        {{ $no_antrian ?? 0 }}
+                                        {{ $queue->no_antrian ?? '-' }}
                                     </p>
                                 </div>
 
@@ -152,7 +152,7 @@
                                     </span>
 
                                     <span class="text-sm font-semibold text-yellow-600">
-                                        {{ $status ?? '-' }}
+                                        {{ $queue->status ?? '-' }}
                                     </span>
                                 </div>
 
@@ -162,7 +162,7 @@
                                     </span>
 
                                     <span class="text-sm font-semibold text-gray-800">
-                                        {{$tujuan ?? '-'}}
+                                        {{ $queue->service->nama ?? '-' }}
                                     </span>
                                 </div>
 
@@ -172,7 +172,7 @@
                                     </span>
 
                                     <span class="text-sm font-bold text-gray-800">
-                                        {{$antrianSelanjutnya ?? '-'}}
+                                        {{ $antrianSelanjutnya->no_antrian ?? '-' }}
                                     </span>
                                 </div>
 

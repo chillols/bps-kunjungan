@@ -142,23 +142,37 @@ class VisitorController extends Controller
             'rincian_tujuan' => $antrian->rincian_tujuan,
         ]);
     }
-    public function welcome()
+  public function welcome()
 {
-    // Antrean yang sedang dipanggil
-    $antrian = Queue::where('status', 'dipanggil')
-        ->latest('updated_at')
-        ->first();
+    $today = now()->toDateString();
 
-    // Antrean selanjutnya
-    $antrianSelanjutnya = Queue::where('status', 'menunggu')
-        ->orderBy('no_antrian', 'asc')
-        ->first();
+    // Antrean yang sedang dipanggil hari ini
+    $queue = Queue::with([
+        'visitor',
+        'service'
+    ])
+    ->where('status', 'dipanggil')
+    ->whereHas('visitor', function ($query) use ($today) {
+        $query->whereDate('tanggal_kunjungan', $today);
+    })
+    ->latest('updated_at')
+    ->first();
+
+    // Antrean selanjutnya hari ini
+    $nextQueue = Queue::with([
+        'visitor',
+        'service'
+    ])
+    ->where('status', 'menunggu')
+    ->whereHas('visitor', function ($query) use ($today) {
+        $query->whereDate('tanggal_kunjungan', $today);
+    })
+    ->orderBy('no_antrian', 'asc')
+    ->first();
 
     return view('welcome', [
-        'no_antrian' => $antrian?->no_antrian,
-        'status' => $antrian?->status,
-        'antrian_selanjutnya' => $antrianSelanjutnya?->no_antrian,
-        'rincian_tujuan' => $antrian?->rincian_tujuan,
+        'queue' => $queue,
+        'antrianSelanjutnya' => $nextQueue,
     ]);
 }
     
