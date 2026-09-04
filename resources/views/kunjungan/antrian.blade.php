@@ -1,18 +1,18 @@
 @extends('layouts.kartu')
 
-@section('title', 'Kartu Antrean')
+@section('title', 'Kartu Antrian')
 
 @section('content')
 
-    <!-- NOMOR ANTREAN -->
+    <!-- NOMOR Antrian -->
     <div class="text-center mb-8">
 
         <p class="text-sm font-medium text-gray-500 uppercase tracking-wide">
-            Nomor Antrean Anda
+            Nomor Antrian Anda
         </p>
 
-        <div class="mt-2 text-7xl font-bold text-red-600">
-            {{ $no_antrian }}
+        <div class="mt-2 text-7xl font-bold text-gray-600">
+            {{ str_pad($no_antrian, 3, '0', STR_PAD_LEFT) }}
         </div>
 
         <p class="mt-2 text-sm text-gray-500">
@@ -114,7 +114,7 @@
         </div>
 
         <p class="text-sm leading-relaxed text-gray-600">
-            Silakan menunggu di ruang tunggu hingga nomor antrean Anda
+            Silakan menunggu di ruang tunggu hingga nomor Antrian Anda
             dipanggil oleh petugas.
         </p>
 

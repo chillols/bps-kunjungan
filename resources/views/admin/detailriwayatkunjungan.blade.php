@@ -216,7 +216,7 @@
                         </th>
 
                         <th class="px-6 py-4 text-left font-semibold text-gray-600">
-                            No. Antrean
+                            No. Antrian
                         </th>
 
                         <th class="px-6 py-4 text-left font-semibold text-gray-600">
@@ -285,7 +285,7 @@
                             </td>
 
 
-                            <!-- Nomor Antrean -->
+                            <!-- Nomor Antrian -->
                             <td class="px-6 py-4">
 
                                 <span class="inline-flex items-center

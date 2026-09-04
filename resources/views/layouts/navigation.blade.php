@@ -73,7 +73,7 @@
         </a>
 
 
-        <!-- Antrean -->
+        <!-- Antrian -->
         <a href="/admin/daftarantrian"
            class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50">
 
@@ -89,12 +89,12 @@
 
             </svg>
 
-            <span>Antrean</span>
+            <span>Antrian</span>
 
         </a>
 
 
-        <!-- Layanan -->
+        <!-- Layanan 
         <a href="#"
            class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50">
 
@@ -112,7 +112,7 @@
 
             <span>Layanan</span>
 
-        </a>
+        </a> -->
 
 
         <!-- Riwayat -->

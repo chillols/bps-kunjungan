@@ -49,7 +49,7 @@
 
                 {{-- Login Admin --}}
                 <a href="{{ route('login') }}"
-                   class="text-sm font-medium text-gray-600 hover:text-red-600 transition">
+                   class="text-sm font-medium text-gray-600 hover:text-blue-600 transition">
                     Login Admin
                 </a>
 
@@ -58,9 +58,7 @@
     </nav>
 
 
-    {{-- =========================
-        HERO
-    ========================== --}}
+    
     <section class="bg-white">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
@@ -69,20 +67,20 @@
                 {{-- Hero Text --}}
                 <div>
 
-                    <div class="inline-flex items-center px-4 py-2 rounded-full bg-red-50 text-red-600 text-sm font-medium mb-6">
+                    <div class="inline-flex items-center px-4 py-2 rounded-full bg-blue-900 text-white text-sm font-medium mb-6">
                         Layanan Kunjungan BPS
                     </div>
 
-                    <h1 class="text-4xl md:text-5xl lg:text-4xl font-extrabold text-gray-900 leading-tight">
+                    <h1 class="text-4xl md:text-5xl lg:text-4xl font-extrabold text-green-900 leading-tight">
                         Selamat Datang di
-                        <span class="text-red-600">
+                        <span class="text-orange-600">
                             BPS Kabupaten Sijunjung
                         </span>
                     </h1>
 
                     <p class="mt-6 text-lg text-gray-600 leading-relaxed max-w-xl">
                         Silakan lakukan pendaftaran kunjungan secara online
-                        untuk mendapatkan nomor antrean dan memperoleh
+                        untuk mendapatkan nomor antrian dan memperoleh
                         layanan dengan lebih mudah dan tertib.
                     </p>
 
@@ -91,99 +89,35 @@
 
                         <a href="{{ route('kunjungan.create') }}"
                                 class="inline-flex items-center justify-center px-7 py-3.5
-                                    bg-red-600 text-white font-semibold rounded-lg
-                                    hover:bg-red-700 transition shadow-sm">
+                                    bg-blue-600 text-white font-semibold rounded-lg
+                                    hover:bg-blue-900 transition shadow-sm">
                             Daftar Kunjungan
                         </a>
 
+                        <!-- cek antrian
                         <a href="#"
                            class="inline-flex items-center justify-center px-7 py-3.5
                                   bg-white text-gray-700 font-semibold rounded-lg
                                   border border-gray-300
                                   hover:bg-gray-50 transition">
-                            Cek Antrean
-                        </a>
+                            Cek antrian
+                        </a> -->
 
                     </div>
 
                 </div>
 
-
-                {{-- Hero Illustration --}}
-                <div class="flex justify-center lg:justify-end">
-
-                    <div class="relative w-full max-w-md">
-
-                        <div class="absolute inset-0 bg-red-100 rounded-3xl rotate-3"></div>
-
-                        <div class="relative bg-white rounded-3xl shadow-xl border border-gray-100 p-8">
-
-                            <div class="flex items-center justify-between mb-8">
-
-                                <div>
-                                    <p class="text-sm text-gray-500">
-                                        Nomor Antrean Saat Ini
-                                    </p>
-
-                                    <p class="text-4xl font-extrabold text-red-600 mt-1">
-                                        {{ $queue->no_antrian ?? '-' }}
-                                    </p>
-                                </div>
-
-                                <div class="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center">
-                                    <svg class="w-6 h-6 text-red-600"
-                                         fill="none"
-                                         stroke="currentColor"
-                                         viewBox="0 0 24 24">
-                                        <path stroke-linecap="round"
-                                              stroke-linejoin="round"
-                                              stroke-width="2"
-                                              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                    </svg>
-                                </div>
-
-                            </div>
-
-                            <div class="space-y-4">
-
-                                <div class="flex justify-between p-4 bg-gray-50 rounded-xl">
-                                    <span class="text-sm text-gray-500">
-                                        Status
-                                    </span>
-
-                                    <span class="text-sm font-semibold text-yellow-600">
-                                        {{ $queue->status ?? '-' }}
-                                    </span>
-                                </div>
-
-                                <div class="flex justify-between p-4 bg-gray-50 rounded-xl">
-                                    <span class="text-sm text-gray-500">
-                                        Layanan
-                                    </span>
-
-                                    <span class="text-sm font-semibold text-gray-800">
-                                        {{ $queue->service->nama ?? '-' }}
-                                    </span>
-                                </div>
-
-                                <div class="flex justify-between p-4 bg-gray-50 rounded-xl">
-                                    <span class="text-sm text-gray-500">
-                                        Antrean Selanjutnya
-                                    </span>
-
-                                    <span class="text-sm font-bold text-gray-800">
-                                        {{ $antrianSelanjutnya->no_antrian ?? '-' }}
-                                    </span>
-                                </div>
-
-                            </div>
-
-                        </div>
+                        <!-- Hero Image -->
+                        <div class="flex justify-center lg:justify-end">
+                             <div class="relative w-full max-w-md">
+                                <img
+                                    src="{{ asset('images/bps.jpg') }}"
+                                    alt="Buku Kunjungan BPS"
+                                    class="w-full rounded-3xl object-cover shadow-xl"
+                            >
+                         </div>
 
                     </div>
-
-                </div>
-
             </div>
 
         </div>
@@ -199,7 +133,7 @@
 
             <div class="text-center max-w-2xl mx-auto">
 
-                <p class="text-sm font-semibold text-red-600 uppercase tracking-wide">
+                <p class="text-sm font-semibold text-blue-900 uppercase tracking-wide">
                     Layanan
                 </p>
 
@@ -219,9 +153,9 @@
                 {{-- Service 1 --}}
                 <div class="bg-white rounded-2xl p-7 shadow-sm border border-gray-100">
 
-                    <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center">
+                    <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center">
 
-                        <svg class="w-6 h-6 text-red-600"
+                        <svg class="w-6 h-6 text-blue-900"
                              fill="none"
                              stroke="currentColor"
                              viewBox="0 0 24 24">
@@ -247,9 +181,9 @@
                 {{-- Service 2 --}}
                 <div class="bg-white rounded-2xl p-7 shadow-sm border border-gray-100">
 
-                    <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center">
+                    <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center">
 
-                        <svg class="w-6 h-6 text-red-600"
+                        <svg class="w-6 h-6 text-blue-900"
                              fill="none"
                              stroke="currentColor"
                              viewBox="0 0 24 24">
@@ -275,9 +209,9 @@
                 {{-- Service 3 --}}
                 <div class="bg-white rounded-2xl p-7 shadow-sm border border-gray-100">
 
-                    <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center">
+                    <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center">
 
-                        <svg class="w-6 h-6 text-red-600"
+                        <svg class="w-6 h-6 text-blue-900"
                              fill="none"
                              stroke="currentColor"
                              viewBox="0 0 24 24">
@@ -301,9 +235,9 @@
                 {{-- Service 4 --}}
                 <div class="bg-white rounded-2xl p-7 shadow-sm border border-gray-100">
 
-                    <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center">
+                    <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center">
 
-                        <svg class="w-6 h-6 text-red-600"
+                        <svg class="w-6 h-6 text-blue-900"
                              fill="none"
                              stroke="currentColor"
                              viewBox="0 0 24 24">
@@ -327,9 +261,9 @@
                 {{-- Service 5 --}}
                 <div class="bg-white rounded-2xl p-7 shadow-sm border border-gray-100">
 
-                    <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center">
+                    <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center">
 
-                        <svg class="w-6 h-6 text-red-600"
+                        <svg class="w-6 h-6 text-blue-900"
                              fill="none"
                              stroke="currentColor"
                              viewBox="0 0 24 24">
@@ -367,7 +301,7 @@
 
             <div class="text-center">
 
-                <p class="text-sm font-semibold text-red-600 uppercase tracking-wide">
+                <p class="text-sm font-semibold text-blue-900 uppercase tracking-wide">
                     Mudah & Cepat
                 </p>
 
@@ -382,7 +316,7 @@
 
                 <div class="text-center">
 
-                    <div class="mx-auto w-14 h-14 rounded-full bg-red-600 text-white
+                    <div class="mx-auto w-14 h-14 rounded-full bg-blue-900 text-white
                                 flex items-center justify-center text-lg font-bold">
                         01
                     </div>
@@ -400,7 +334,7 @@
 
                 <div class="text-center">
 
-                    <div class="mx-auto w-14 h-14 rounded-full bg-red-600 text-white
+                    <div class="mx-auto w-14 h-14 rounded-full bg-blue-900 text-white
                                 flex items-center justify-center text-lg font-bold">
                         02
                     </div>
@@ -418,17 +352,17 @@
 
                 <div class="text-center">
 
-                    <div class="mx-auto w-14 h-14 rounded-full bg-red-600 text-white
+                    <div class="mx-auto w-14 h-14 rounded-full bg-blue-900 text-white
                                 flex items-center justify-center text-lg font-bold">
                         03
                     </div>
 
                     <h3 class="mt-5 font-bold text-gray-900">
-                        Dapatkan Antrean
+                        Dapatkan antrian
                     </h3>
 
                     <p class="mt-2 text-sm text-gray-600">
-                        Sistem akan memberikan nomor antrean.
+                        Sistem akan memberikan nomor antrian.
                     </p>
 
                 </div>
@@ -436,7 +370,7 @@
 
                 <div class="text-center">
 
-                    <div class="mx-auto w-14 h-14 rounded-full bg-red-600 text-white
+                    <div class="mx-auto w-14 h-14 rounded-full bg-blue-900 text-white
                                 flex items-center justify-center text-lg font-bold">
                         04
                     </div>
@@ -446,7 +380,7 @@
                     </h3>
 
                     <p class="mt-2 text-sm text-gray-600">
-                        Tunggu hingga nomor antrean Anda dipanggil.
+                        Tunggu hingga nomor antrian Anda dipanggil.
                     </p>
 
                 </div>
@@ -461,7 +395,7 @@
     {{-- =========================
         CTA
     ========================== --}}
-    <section class="py-16 bg-red-600">
+    <section class="py-16 bg-blue-900">
 
         <div class="max-w-4xl mx-auto px-6 text-center">
 
@@ -469,15 +403,15 @@
                 Siap melakukan kunjungan?
             </h2>
 
-            <p class="mt-4 text-red-100">
-                Daftarkan kunjungan Anda dan dapatkan nomor antrean
+            <p class="mt-4 text-blue-100">
+                Daftarkan kunjungan Anda dan dapatkan nomor antrian
                 dengan mudah.
             </p>
 
             <a href="{{ route('kunjungan.create') }}"
                     class="inline-flex items-center justify-center px-7 py-3.5
-                        bg-red-600 text-white font-semibold rounded-lg
-                        hover:bg-red-700 transition shadow-sm">
+                        bg-orange-500 text-white font-semibold rounded-lg
+                        hover:bg-orange-700 transition shadow-sm">
                  Daftar Kunjungan
             </a>
 
@@ -489,7 +423,7 @@
     {{-- =========================
         FOOTER
     ========================== --}}
-    <footer class="bg-gray-900">
+    <footer class="bg-orange-500">
 
         <div class="max-w-7xl mx-auto px-6 lg:px-8 py-10">
 
@@ -502,13 +436,13 @@
                         Buku Kunjungan BPS
                     </p>
 
-                    <p class="text-sm text-gray-400 mt-1">
-                        Sistem layanan kunjungan dan antrean.
+                    <p class="text-sm text-white mt-1">
+                        Sistem layanan kunjungan dan antrian.
                     </p>
 
                 </div>
 
-                <div class="text-sm text-gray-400">
+                <div class="text-sm text-white">
                     © {{ date('Y') }} Badan Pusat Statistik Kabupaten Sijunjung. All rights reserved.
                 </div>
 

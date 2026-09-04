@@ -22,7 +22,7 @@
         <!-- Menunggu -->
         <div class="bg-white shadow-sm rounded-xl p-6">
             <p class="text-sm text-gray-500">
-                Antrean Menunggu
+                Antrian Menunggu
             </p>
 
             <p class="text-3xl font-bold text-yellow-600 mt-2">
@@ -57,18 +57,18 @@
     </div>
 
 
-    <!-- Antrean -->
+    <!-- Antrian -->
     <div class="mt-8 bg-white shadow-sm rounded-xl p-6">
 
         <div class="flex items-center justify-between mb-5">
 
             <div>
                 <h2 class="text-lg font-semibold text-gray-800">
-                    Antrean Hari Ini
+                    Antrian Hari Ini
                 </h2>
 
                 <p class="text-sm text-gray-500">
-                    Daftar antrean pengunjung hari ini
+                    Daftar Antrian pengunjung hari ini
                 </p>
             </div>
 
@@ -83,7 +83,7 @@
             <tr>
 
                 <th class="py-3 px-2 font-semibold text-gray-600">
-                    No. Antrean
+                    No. Antrian
                 </th>
 
                 <th class="py-3 px-2 font-semibold text-gray-600">
@@ -111,7 +111,7 @@
 
                 <tr class="border-b border-gray-100 hover:bg-gray-50">
 
-                    {{-- No. Antrean --}}
+                    {{-- No. Antrian --}}
                     <td class="py-4 px-2 font-semibold">
                         {{ $queue->no_antrian }}
                     </td>
@@ -168,7 +168,7 @@
 
                 <tr>
                     <td colspan="5" class="py-10 text-center text-gray-500">
-                        Belum ada antrean hari ini.
+                        Belum ada Antrian hari ini.
                     </td>
                 </tr>
 

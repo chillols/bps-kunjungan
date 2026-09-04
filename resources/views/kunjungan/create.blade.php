@@ -1,3 +1,4 @@
+@section('title', 'Kartu Antrian')
 <x-guest-layout>
 
     <x-auth-session-status
@@ -275,3 +276,4 @@
     </form>
 
 </x-guest-layout>
+@endsection

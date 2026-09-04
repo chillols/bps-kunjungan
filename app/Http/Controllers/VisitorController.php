@@ -146,12 +146,12 @@ class VisitorController extends Controller
 {
     $today = now()->toDateString();
 
-    // Antrean yang sedang dipanggil hari ini
+    // Antrean yang sedang dilayani hari ini
     $queue = Queue::with([
         'visitor',
         'service'
     ])
-    ->where('status', 'dipanggil')
+    ->where('status', 'dilayani')
     ->whereHas('visitor', function ($query) use ($today) {
         $query->whereDate('tanggal_kunjungan', $today);
     })

@@ -20,10 +20,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/kunjungan', function () {
-    return view('kunjungan.create');})
-    ->name('kunjungan.create');
-
 Route::get('/kunjungan', [VisitorController::class, 'create'])
     ->name('kunjungan.create');
 
@@ -35,9 +31,18 @@ Route::get('/kunjungan/antrian/{id}', [VisitorController::class, 'antrian'])
 
 
 // Admin routes
-Route::get('/admin/daftarantrian', function () {
-    return view('admin.daftarantrian');
-})->name('admin.daftarantrian');
+Route::middleware(['auth'])->group(function () {
+
+    Route::get('/admin/daftarantrian', [AdminController::class, 'daftarantrian'])
+        ->name('admin.daftarantrian');
+
+    Route::patch('/admin/daftarantrian/{id}/panggil', [AdminController::class, 'panggilAntrian'])
+        ->name('admin.antrian.panggil');
+
+    Route::patch('/admin/daftarantrian/{id}/selesai', [AdminController::class, 'selesaiAntrian'])
+        ->name('admin.antrian.selesai');
+
+});
 
 Route::get('/admin/datapengunjung', [AdminController::class, 'datapengunjung'])
     ->name('admin.datapengunjung');

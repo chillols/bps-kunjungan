@@ -24,7 +24,7 @@ class AdminController extends Controller
             ->whereDate('created_at', $today)
             ->count();
 
-        $totalCalled = Queue::where('status', 'dipanggil')
+        $totalCalled = Queue::where('status', 'dilayani')
             ->whereDate('created_at', $today)
             ->count();
 
@@ -138,5 +138,86 @@ class AdminController extends Controller
         new RiwayatKunjunganExport($tanggal),
         'riwayat-kunjungan-' . $tanggal . '.xlsx'
     );
+}
+    public function daftarantrian()
+{
+    $today = now()->toDateString();
+
+    $antrianSaatIni = Queue::with([
+        'visitor',
+        'service'
+    ])
+    ->where('status', 'dilayani')
+    ->whereHas('visitor', function ($query) use ($today) {
+        $query->whereDate('tanggal_kunjungan', $today);
+    })
+    ->latest('waktu_dipanggil')
+    ->first();
+
+    $queues = Queue::with([
+        'visitor',
+        'service'
+    ])
+    ->whereHas('visitor', function ($query) use ($today) {
+        $query->whereDate('tanggal_kunjungan', $today);
+    })
+    ->orderBy('no_antrian', 'asc')
+    ->get();
+
+    return view('admin.daftarantrian', [
+        'queues' => $queues,
+        'antrianSaatIni' => $antrianSaatIni,
+    ]);
+}
+
+public function panggilAntrian($id)
+{
+    $queue = Queue::findOrFail($id);
+
+    if ($queue->status !== 'menunggu') {
+        return redirect()
+            ->route('admin.daftarantrian')
+            ->with('error', 'Antrian ini sudah dilayani atau selesai.');
+    }
+
+    $sedangDilayani = Queue::where('status', 'dilayani')->exists();
+
+    if ($sedangDilayani) {
+        return redirect()
+            ->route('admin.daftarantrian')
+            ->with(
+                'error',
+                'Selesaikan antrian yang sedang dilayani terlebih dahulu.'
+            );
+    }
+
+    $queue->update([
+        'status' => 'dilayani',
+        'waktu_dipanggil' => now(),
+    ]);
+
+    return redirect()
+        ->route('admin.daftarantrian')
+        ->with('success', 'Antrian berhasil dilayani.');
+}
+
+public function selesaiAntrian($id)
+{
+    $queue = Queue::findOrFail($id);
+
+    if ($queue->status !== 'dilayani') {
+        return redirect()
+            ->route('admin.daftarantrian')
+            ->with('error', 'Antrian ini tidak sedang dilayani.');
+    }
+
+    $queue->update([
+        'status' => 'selesai',
+        'waktu_selesai' => now(),
+    ]);
+
+    return redirect()
+        ->route('admin.daftarantrian')
+        ->with('success', 'Antrian berhasil diselesaikan.');
 }
 }

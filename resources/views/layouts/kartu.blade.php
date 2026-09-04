@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>
-        @yield('title', 'Kartu Antrean')
+        @yield('title', 'Kartu Antrian')
     </title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -35,7 +35,7 @@
                 </h1>
 
                 <p class="mt-1 text-sm text-gray-500">
-                    Kartu Antrean Pengunjung
+                    Kartu Antrian Pengunjung
                 </p>
 
             </div>
@@ -51,7 +51,7 @@
             <div class="border-t border-gray-100 bg-gray-50 px-6 py-4 text-center">
 
                 <p class="text-xs text-gray-500">
-                    Harap menunggu hingga nomor antrean Anda dipanggil.
+                    Harap menunggu hingga nomor Antrian Anda dipanggil.
                 </p>
 
             </div>

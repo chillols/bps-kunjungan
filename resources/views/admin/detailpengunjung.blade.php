@@ -130,10 +130,10 @@
                     </p>
                 </div>
 
-                <!-- No Antrean -->
+                <!-- No Antrian -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
                     <p class="text-sm text-gray-500">
-                        No. Antrean
+                        No. Antrian
                     </p>
 
                     <p class="md:col-span-2 text-sm font-bold text-red-600">
